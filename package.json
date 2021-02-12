@@ -1,9 +1,12 @@
 {
   "name": "node_js",
+  "homepage" : "https://sameerah01.github.io/Mynewblog.github.io",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
