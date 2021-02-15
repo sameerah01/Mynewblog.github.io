@@ -32,10 +32,11 @@ const blogEditGet = (req,res) =>  {
     const id = req.params.id;
     const blog = Blog.findById(id)
     .then(result => {
-        res.render('edit',{blog: result, title: 'details Blog'})
+        res.render('edit',{blog: result, title: 'details Blog'});
+        logger.info('Edit page displayed');
     })
     .catch(err => {
-        console.log(err);
+        logger.error(err);
     });
     }
 
@@ -44,9 +45,10 @@ const blogEdit = (req,res) => {
         const blog = Blog.findByIdAndUpdate(id,req.body)
         .then(result => {
         res.redirect('/blogs');
+        logger.info('Blog content successfully updated');
     })
     .catch(err => {
-        console.log(err);
+        logger.error(err);
     });
 
     }
